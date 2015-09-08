@@ -69,3 +69,23 @@ endfunction
 
 :let g:session_autosave = 'yes'
 :let g:session_autoload = 'yes'
+
+"Disabled arrow keys
+inoremap <UP> <NOP>
+inoremap <Down> <NOP>
+inoremap <Left> <NOP>
+inoremap <Right> <NOP>
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Right> <NOP>
+noremap <Left> <NOP>
+
+
+function! PullAndRefresh()
+  set noconfirm
+    !git pull
+    bufdo e!
+    set confirm
+  endfun
+
+nmap <leader>gr call PullAndRefresh()
