@@ -89,3 +89,4 @@ function! PullAndRefresh()
   endfun
 
 nmap <leader>gr call PullAndRefresh()
+let g:move_key_modifier = 'C'
