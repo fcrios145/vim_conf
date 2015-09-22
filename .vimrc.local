@@ -91,7 +91,7 @@ function! PullAndRefresh()
 nmap <leader>gr call PullAndRefresh()
 let g:move_key_modifier = 'C'
 
-"UnBundle numbers.vim
+UnBundle 'spf13/PIV'
 let g:spf13_use_powerline = 1
 let g:spf13_use_old_powerline = 1
 set nu
