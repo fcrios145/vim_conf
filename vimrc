@@ -1,5 +1,6 @@
 set nocompatible              " be iMproved, required
-filetype off                  " required
+
+filetype off" required
 let mapleader = ","
 set number
 set t_Co=256
