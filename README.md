@@ -1,3 +1,5 @@
 # vim_conf
 
-Es necesario crear el enlace symbolico en tu carpeta HOME para que funcionen las configuraciones
+Crear enlace symbolico en tu carpeta HOME para que funcionen las configuraciones.
+Instalar Vundle de manera manual
+Instalar ctrlp de manera manual tambien
