@@ -2,9 +2,102 @@ set nocompatible              " be iMproved, required
 
 filetype off" required
 let mapleader = ","
-set number
+"set number
 set t_Co=256
 syntax on
+
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+set encoding=utf-8
+set scrolloff=3
+set autoindent
+set showmode
+set showcmd
+set hidden
+set wildmenu
+"set wildmode=list:longest
+set visualbell
+set cursorline
+set ttyfast
+set ruler
+set backspace=indent,eol,start
+set laststatus=2
+set relativenumber
+set undofile
+nnoremap / /\v
+vnoremap / /\v
+set ignorecase
+set smartcase
+set incsearch
+set showmatch
+set hlsearch
+
+nnoremap <leader><space> :noh<cr>
+nnoremap <tab> %
+vnoremap <tab> %
+
+set wrap
+set textwidth=79
+set formatoptions=qrn1
+set colorcolumn=120
+
+" select a word with space only
+"map <space> viw
+
+" Delete a line in insert mode and go back to insert mode
+inoremap <c-d> <esc>d$i
+
+" Dont use the arrow keys plax
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+nnoremap j gj
+nnoremap k gk
+
+" Deactivate F1 key, it is to annoying
+inoremap <F1> <ESC>
+nnoremap <F1> <ESC>
+vnoremap <F1> <ESC>
+
+" Save on losing focus
+au FocusLost * :wa
+
+" Reselect pasted text
+nnoremap <leader>v V`]
+
+" Rehard wrap paragraph of text
+nnoremap <leader>q gqip
+
+" Open vimrc on the fly in a new vertical split
+nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
+" Source vimrc file, reload..
+nnoremap <leader>sv :source $MYVIMRC<cr>
+
+" Escape without escape key instead do it pressing j twice
+inoremap jj <ESC>
+
+" Create new vertical split and switch over it
+nnoremap <leader>tw <C-w>v<C-w>l
+
+" Move in splits easily
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Fast search text in files with Ag
+nnoremap <leader>a :Ag
+
+
+"set list
+"set listchars=tab:▸\ ,eol:¬
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -38,7 +131,7 @@ filetype plugin indent on    " required
 Plugin 'flazz/vim-colorschemes'
 Plugin 'bling/vim-airline'
 Plugin 'tacahiroy/ctrlp-funky'
-set laststatus=2
+"set laststatus=2
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 nnoremap <Leader>fu :CtrlPFunky<Cr>
@@ -129,6 +222,10 @@ Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/neocomplete'
 Plugin 'Shougo/neosnippet'
 Plugin 'Shougo/neosnippet-snippets'
+Plugin 'rstacruz/sparkup'
+Plugin 'vim-scripts/YankRing.vim'
+Plugin 'luochen1990/rainbow'
+Plugin 'mbbill/undotree'
 " autocmd  FileType  php setlocal omnifunc=phpcomplete_extended#CompletePHP
 
 
@@ -215,3 +312,8 @@ endif
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'Yggdroot/indentLine'
