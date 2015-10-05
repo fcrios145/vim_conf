@@ -6,6 +6,15 @@ let mapleader = ","
 set t_Co=256
 syntax on
 
+"set noswapfile
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swap//
+set undodir=~/.vim/undo//
+
+let g:gitgutter_realtime = 1
+let g:gitgutter_eager = 1
+set updatetime=750
+
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
@@ -25,7 +34,6 @@ set ruler
 set backspace=indent,eol,start
 set laststatus=2
 set relativenumber
-set undofile
 nnoremap / /\v
 vnoremap / /\v
 set ignorecase
@@ -147,10 +155,13 @@ set hidden
 nmap <leader>T :enew<cr>
 "
 " " Move to the next buffer
-nmap <leader>l :bnext<CR>
+nnoremap <leader>h :bprevious<CR>
+nnoremap <leader>l :bnext<CR>
+map <Leader>ml <Plug>(easymotion-lineforward)
+map <Leader>mh <Plug>(easymotion-linebackward)
 "
 " " Move to the previous buffer
-nmap <leader>h :bprevious<CR>
+
 "
 " " Close the current buffer and move to the previous one
 " " This replicates the idea of closing a tab
@@ -182,7 +193,7 @@ nmap <leader>bl :ls<CR>
 Plugin 'pangloss/vim-javascript'
 Plugin 'jelera/vim-javascript-syntax'
 
-colorscheme molokai
+
 
 nnoremap <space>ga :Git add %:p<CR><CR>
 nnoremap <space>gs :Gstatus<CR>
@@ -317,3 +328,9 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'Yggdroot/indentLine'
+Plugin 'zenorocha/dracula-theme', {'rtp': 'vim/'}
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'tpope/vim-surround'
+Plugin 'easymotion/vim-easymotion'
+
+colorscheme jellybeans
