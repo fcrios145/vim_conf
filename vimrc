@@ -1,6 +1,6 @@
 set nocompatible              " be iMproved, required
 
-filetype off" required
+filetype off " required
 let mapleader = ","
 "set number
 set t_Co=256
@@ -25,15 +25,16 @@ set autoindent
 set showmode
 set showcmd
 set hidden
-set wildmenu
-"set wildmode=list:longest
+"set wildmenu
+set wildmode=list:longest
 set visualbell
 set cursorline
 set ttyfast
 set ruler
 set backspace=indent,eol,start
 set laststatus=2
-set relativenumber
+"set relativenumber
+set number
 nnoremap / /\v
 vnoremap / /\v
 set ignorecase
@@ -49,7 +50,7 @@ vnoremap <tab> %
 set wrap
 set textwidth=79
 set formatoptions=qrn1
-set colorcolumn=120
+"set colorcolumn=150
 
 " select a word with space only
 "map <space> viw
@@ -102,6 +103,7 @@ nnoremap <C-l> <C-w>l
 
 " Fast search text in files with Ag
 nnoremap <leader>a :Ag
+nnoremap <leader>U :UndotreeToggle <CR> <C-w><C-h>
 
 
 "set list
@@ -114,13 +116,41 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
-" plugin from http://vim-scripts.org/vim/scripts.html
+Plugin 'Shougo/neocomplete'
+Plugin 'Shougo/neosnippet'
+Plugin 'Shougo/neosnippet-snippets'
+"Plugin 'rstacruz/sparkup'
+"Plugin 'vim-scripts/YankRing.vim'
+"Plugin 'luochen1990/rainbow'
+Plugin 'mbbill/undotree'
+"Plugin 'Shougo/vimproc'
+Plugin 'Shougo/unite.vim'
+Plugin 'rking/ag.vim'
+Plugin 'matze/vim-move'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'bling/vim-airline'
+Plugin 'tacahiroy/ctrlp-funky'
+Plugin 'pangloss/vim-javascript'
+Plugin 'jelera/vim-javascript-syntax'
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'Yggdroot/indentLine'
+Plugin 'zenorocha/dracula-theme', {'rtp': 'vim/'}
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'tpope/vim-surround'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'terryma/vim-multiple-cursors'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -136,9 +166,6 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
-Plugin 'flazz/vim-colorschemes'
-Plugin 'bling/vim-airline'
-Plugin 'tacahiroy/ctrlp-funky'
 "set laststatus=2
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
@@ -190,9 +217,6 @@ nmap <leader>bl :ls<CR>
      nmap <leader>bm :CtrlPMixed<cr>
      nmap <leader>bs :CtrlPMRU<cr>
 
-Plugin 'pangloss/vim-javascript'
-Plugin 'jelera/vim-javascript-syntax'
-
 
 
 nnoremap <space>ga :Git add %:p<CR><CR>
@@ -222,21 +246,10 @@ nmap <leader>w  :bw<CR>
 nmap <leader>W  :bw!<CR>
 
 
-Plugin 'rking/ag.vim'
-Plugin 'matze/vim-move'
 let g:move_key_modifier = 'C'
 let g:airline_theme='badwolf'
 
-Plugin 'Shougo/vimproc'
-Plugin 'Shougo/unite.vim'
 
-Plugin 'Shougo/neocomplete'
-Plugin 'Shougo/neosnippet'
-Plugin 'Shougo/neosnippet-snippets'
-Plugin 'rstacruz/sparkup'
-Plugin 'vim-scripts/YankRing.vim'
-Plugin 'luochen1990/rainbow'
-Plugin 'mbbill/undotree'
 " autocmd  FileType  php setlocal omnifunc=phpcomplete_extended#CompletePHP
 
 
@@ -322,15 +335,24 @@ endif
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/nerdtree'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'Yggdroot/indentLine'
-Plugin 'zenorocha/dracula-theme', {'rtp': 'vim/'}
-Plugin 'nanotech/jellybeans.vim'
-Plugin 'tpope/vim-surround'
-Plugin 'easymotion/vim-easymotion'
-
 colorscheme jellybeans
+
+function! Multiple_cursors_before()
+    exe 'NeoCompleteLock'
+    echo 'Disabled autocomplete'
+endfunction
+
+function! Multiple_cursors_after()
+    exe 'NeoCompleteUnlock'
+    echo 'Enabled autocomplete'
+endfunction
+
+set ttyfast " u got a fast terminal
+set ttyscroll=3
+set lazyredraw " to avoid scrolling problems
+set synmaxcol=512
+
+" Easy motion searches
+" Gif config
+nmap s <Plug>(easymotion-s2)
+nmap t <Plug>(easymotion-t2)
