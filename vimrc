@@ -335,7 +335,7 @@ endif
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
-colorscheme jellybeans
+colorscheme molokai
 
 function! Multiple_cursors_before()
     exe 'NeoCompleteLock'
@@ -354,5 +354,6 @@ set synmaxcol=512
 
 " Easy motion searches
 " Gif config
-nmap s <Plug>(easymotion-s2)
-nmap t <Plug>(easymotion-t2)
+nmap s <Plug>(easymotion-s)
+nmap t <Plug>(easymotion-t)
+
