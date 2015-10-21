@@ -46,6 +46,7 @@ set hlsearch
 nnoremap <leader><space> :noh<cr>
 nnoremap <tab> %
 vnoremap <tab> %
+noremap <Leader>s :update<CR>
 
 set wrap
 set textwidth=79
@@ -121,6 +122,7 @@ call vundle#begin()
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
+Plugin 'terryma/vim-smooth-scroll'
 Plugin 'tpope/vim-fugitive'
 Plugin 'Shougo/neocomplete'
 Plugin 'Shougo/neosnippet'
@@ -357,3 +359,7 @@ set synmaxcol=512
 nmap s <Plug>(easymotion-s)
 nmap t <Plug>(easymotion-t)
 
+noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
+noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
+noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
+noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
