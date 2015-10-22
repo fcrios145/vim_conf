@@ -15,6 +15,7 @@ let g:gitgutter_realtime = 1
 let g:gitgutter_eager = 1
 set updatetime=750
 
+set mouse=a
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
@@ -122,6 +123,7 @@ call vundle#begin()
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
+Plugin 'stephpy/vim-yaml'
 Plugin 'terryma/vim-smooth-scroll'
 Plugin 'tpope/vim-fugitive'
 Plugin 'Shougo/neocomplete'
@@ -363,3 +365,4 @@ noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
 noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
 noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
 noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
+set clipboard=unnamed
