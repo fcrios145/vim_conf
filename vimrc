@@ -26,7 +26,7 @@ set autoindent
 set showmode
 set showcmd
 set hidden
-"set wildmenu
+set wildmenu
 set wildmode=list:longest
 set visualbell
 set cursorline
@@ -123,6 +123,7 @@ call vundle#begin()
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
+Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'stephpy/vim-yaml'
 Plugin 'terryma/vim-smooth-scroll'
 Plugin 'tpope/vim-fugitive'
@@ -200,6 +201,7 @@ nmap <leader>bq :bp <BAR> bd #<CR>
 "
 " " Show all open buffers and their status
 nmap <leader>bl :ls<CR>
+nmap <leader>m :NERDTreeToggle <CR>
 
 " Setup some default ignores
  let g:ctrlp_custom_ignore = {
@@ -251,7 +253,7 @@ nmap <leader>W  :bw!<CR>
 
 
 let g:move_key_modifier = 'C'
-let g:airline_theme='badwolf'
+let g:airline_theme='hybrid'
 
 
 " autocmd  FileType  php setlocal omnifunc=phpcomplete_extended#CompletePHP
@@ -366,3 +368,37 @@ noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
 noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
 noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
 set clipboard=unnamed
+
+
+" Use the right side of the screen
+let g:buffergator_viewport_split_policy = 'R'
+
+" I want my own keymappings...
+let g:buffergator_suppress_keymaps = 1
+
+" Looper buffers
+"let g:buffergator_mru_cycle_loop = 1
+
+" Go to the previous buffer open
+nmap <leader>h :BuffergatorMruCyclePrev<cr>
+
+" Go to the next buffer open
+nmap <leader>l :BuffergatorMruCycleNext<cr>
+
+" View the entire list of buffers open
+nmap <leader>bl :BuffergatorOpen<cr>
+
+" Shared bindings from Solution #1 from earlier
+nmap <leader>T :enew<cr>
+nmap <leader>bq :bp <BAR> bd #<cr>
+
+
+nnoremap x "_x
+nnoremap d "_d
+nnoremap D "_D
+vnoremap d "_d
+
+nnoremap <leader>d ""d
+nnoremap <leader>D ""D
+vnoremap <leader>d ""d
+"e ++ff=dos
