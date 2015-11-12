@@ -105,8 +105,10 @@ nnoremap <C-l> <C-w>l
 
 " Fast search text in files with Ag
 nnoremap <leader>a :Ag
-nnoremap <leader>U :UndotreeToggle <CR> <C-w><C-h>
+nnoremap <F5> :UndotreeToggle<cr>
+nnoremap <F8> :NERDTreeToggle<cr>
 
+"nmap <leader>m :NERDTreeToggle <CR>
 
 "set list
 "set listchars=tab:▸\ ,eol:¬
@@ -121,6 +123,10 @@ call vundle#begin()
 
 
 " The following are examples of different formats supported.
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'mkarmona/colorsbox'
+Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'chase/vim-ansible-yaml'
 Plugin 'stephpy/vim-yaml'
 Plugin 'terryma/vim-smooth-scroll'
@@ -221,6 +227,7 @@ nmap <leader>m :NERDTreeToggle <CR>
 
 
 nnoremap <space>ga :Git add %:p<CR><CR>
+nnoremap <space>gb :Gblame<CR>
 nnoremap <space>gs :Gstatus<CR>
 nnoremap <space>gc :Gcommit -v -q<CR>
 nnoremap <space>gt :Gcommit -v -q %:p<CR>
@@ -231,7 +238,7 @@ nnoremap <space>gw :Gwrite<CR><CR>
 nnoremap <space>gl :silent! Glog<CR>:bot copen<CR>
 nnoremap <space>gp :Ggrep<Space>
 nnoremap <space>gm :Gmove<Space>
-nnoremap <space>gb :Git branch<Space>
+"nnoremap <space>gb :Git branch<Space>
 nnoremap <space>go :Git checkout<Space>
 nnoremap <space>gps :Dispatch! git push<CR>
 nnoremap <space>gpl :Dispatch! git pull<CR>
@@ -248,7 +255,7 @@ nmap <leader>W  :bw!<CR>
 
 
 let g:move_key_modifier = 'C'
-let g:airline_theme='badwolf'
+let g:airline_theme='dark'
 
 
 colorscheme molokai
@@ -328,3 +335,14 @@ let g:airline_powerline_fonts = 1
 set wildchar=<Tab> wildmenu wildmode=full
 set wildcharm=<C-Z>
 nnoremap <F10> :b 
+let g:EclimCompletionMethod = 'omnifunc'
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+"let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-w>"
+let g:UltiSnipsJumpBackwardTrigger="<c-e>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+let g:ycm_key_list_select_completion=[]
+let g:ycm_key_list_previous_completion=[]
