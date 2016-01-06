@@ -123,6 +123,10 @@ call vundle#begin()
 
 
 " The following are examples of different formats supported.
+Plugin 'evidens/vim-twig'
+Plugin 'michalliu/sourcebeautify.vim'
+Plugin 'mhinz/vim-startify'
+Plugin 'kien/ctrlp.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'mkarmona/colorsbox'
@@ -255,10 +259,10 @@ nmap <leader>W  :bw!<CR>
 
 
 let g:move_key_modifier = 'C'
-let g:airline_theme='dark'
+let g:airline_theme='solarized'
 
 
-colorscheme molokai
+colorscheme solarized
 
 "function! Multiple_cursors_before()
     "exe 'NeoCompleteLock'
@@ -347,4 +351,4 @@ let g:UltiSnipsEditSplit="vertical"
 let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
 
-
+let g:startify_session_persistence = 1
