@@ -259,10 +259,10 @@ nmap <leader>W  :bw!<CR>
 
 
 let g:move_key_modifier = 'C'
-let g:airline_theme='solarized'
+let g:airline_theme='molokai'
 
 
-colorscheme solarized
+colorscheme molokai
 
 "function! Multiple_cursors_before()
     "exe 'NeoCompleteLock'
