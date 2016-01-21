@@ -94,7 +94,7 @@ nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " Escape without escape key instead do it pressing j twice
-inoremap jj <ESC>
+"inoremap jj <ESC>
 
 " Create new vertical split and switch over it
 nnoremap <leader>tw <C-w>v<C-w>l
@@ -125,13 +125,17 @@ call vundle#begin()
 
 
 " The following are examples of different formats supported.
+Plugin 'ervandew/screen'
+Plugin 'mattn/emmet-vim'
 Plugin 'wincent/command-t'
 Plugin 'evidens/vim-twig'
 Plugin 'michalliu/sourcebeautify.vim'
 Plugin 'mhinz/vim-startify'
-Plugin 'kien/ctrlp.vim'
+"Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
+"Plugin 'honza/vim-snippets'
+Plugin 'fcrios145/vim-snippets'
 Plugin 'mkarmona/colorsbox'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'chase/vim-ansible-yaml'
@@ -341,7 +345,7 @@ let g:airline_powerline_fonts = 1
 
 set wildchar=<Tab> wildmenu wildmode=full
 set wildcharm=<C-Z>
-nnoremap <F10> :b 
+nnoremap <F10> : CtrlPBuffer<CR>
 let g:EclimCompletionMethod = 'omnifunc'
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
@@ -360,3 +364,5 @@ let g:powerline_pycmd = "py3"
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
+" Configurar Ag para que busque en el directorio root
+let g:ag_working_path_mode="r"
