@@ -5,7 +5,9 @@ let mapleader = ","
 "set number
 set t_Co=256
 syntax on
+set background=dark
 
+let g:powerline_loaded = 1
 "set noswapfile
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
@@ -123,6 +125,7 @@ call vundle#begin()
 
 
 " The following are examples of different formats supported.
+Plugin 'wincent/command-t'
 Plugin 'evidens/vim-twig'
 Plugin 'michalliu/sourcebeautify.vim'
 Plugin 'mhinz/vim-startify'
@@ -228,7 +231,7 @@ nmap <leader>m :NERDTreeToggle <CR>
      nmap <leader>bm :CtrlPMixed<cr>
      nmap <leader>bs :CtrlPMRU<cr>
 
-
+nnoremap <C-space> :CtrlPBuffer<CR>
 
 nnoremap <space>ga :Git add %:p<CR><CR>
 nnoremap <space>gb :Gblame<CR>
@@ -259,10 +262,10 @@ nmap <leader>W  :bw!<CR>
 
 
 let g:move_key_modifier = 'C'
-let g:airline_theme='molokai'
+let g:airline_theme='solarized'
 
 
-colorscheme molokai
+colorscheme solarized
 
 "function! Multiple_cursors_before()
     "exe 'NeoCompleteLock'
@@ -288,7 +291,7 @@ noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
 noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
 noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
 noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
-set clipboard=unnamed
+set clipboard=unnamedplus
 
 
 " Use the right side of the screen
@@ -352,3 +355,8 @@ let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
 
 let g:startify_session_persistence = 1
+
+let g:powerline_pycmd = "py3"
+
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
