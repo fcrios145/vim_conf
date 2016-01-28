@@ -369,3 +369,9 @@ let g:powerline_pycmd = "py3"
 cmap w!! w !sudo tee > /dev/null %
 " Configurar Ag para que busque en el directorio root
 let g:ag_working_path_mode="r"
+
+" If you prefer the Omni-Completion tip window to close when a selection is
+" made, these lines close it on movement in insert mode or when leaving
+" insert mode
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
