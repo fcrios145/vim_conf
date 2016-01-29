@@ -126,6 +126,9 @@ call vundle#begin()
 
 " The following are examples of different formats supported.
 Plugin 'ervandew/screen'
+Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'AtsushiM/sass-compile.vim'
+Plugin 'AtsushiM/search-parent.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'wincent/command-t'
 Plugin 'evidens/vim-twig'
