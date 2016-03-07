@@ -5,6 +5,8 @@ let mapleader = ","
 "set number
 set t_Co=256
 syntax on
+set relativenumber
+set number
 
 "set noswapfile
 set backupdir=~/.vim/backup//
@@ -92,7 +94,7 @@ nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " Escape without escape key instead do it pressing j twice
-"inoremap jj <ESC>
+inoremap jj <ESC>
 
 " Create new vertical split and switch over it
 nnoremap <leader>tw <C-w>v<C-w>l
@@ -123,6 +125,13 @@ call vundle#begin()
 
 
 " The following are examples of different formats supported.
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'modess/vim-phpcolors'
+Plugin 'majutsushi/tagbar'
+Plugin 'vim-scripts/taglist.vim'
+Plugin 'xolox/vim-misc'
+"Plugin 'xolox/vim-easytags'
+Plugin 'endel/vim-github-colorscheme'
 Plugin 'ervandew/screen'
 Plugin 'mattn/emmet-vim'
 Plugin 'wincent/command-t'
@@ -184,7 +193,7 @@ filetype plugin indent on    " required
 "set laststatus=2
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
-nnoremap <Leader>fu :CtrlPFunky<Cr>
+nnoremap <F9> :CtrlPFunky<Cr>
 " narrow the list down with a word under cursor
 nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 
@@ -230,8 +239,9 @@ nmap <leader>m :NERDTreeToggle <CR>
 "
 "     " Easy bindings for its various modes
      nmap <leader>bb :CtrlPBuffer<cr>
-     nmap <leader>bm :CtrlPMixed<cr>
+     nmap <F7> :CtrlPMixed<cr>
      nmap <leader>bs :CtrlPMRU<cr>
+     nmap <leader>bp :CtrlPTag<cr>
 
 
 
@@ -366,3 +376,11 @@ let g:ag_working_path_mode="r"
 " insert mode
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+command! PrettyPrintJSON %!python -m json.tool
+command! PrettyPrintHTML !tidy -mi -html -wrap 0 %
+command! PrettyPrintXML !tidy -mi -xml -wrap 0 %
+
+set tags=~/Projects/clickbalance-vm/tags
+
+let g:airline#extensions#tagbar#enabled = 1
